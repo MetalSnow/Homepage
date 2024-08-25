@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+body {
+  font-family: 'Montserrat', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* header section */
+
+.design {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 300px;
+  background-color: rgb(46, 125, 171);
+  transform: skewY(-25deg) scale(2);
+  box-shadow: 4px 2px 6px 2px rgba(0, 0, 0, 0.4);
+}
+
+.img-container {
+  position: relative;
+  background-image: url(./place-holder.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+  margin: 30px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  box-shadow: 1px 2px 6px 2px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+  font-family: 'Open Sans', sans-serif;
+  color: white;
+  text-shadow: 5px 5px 6px black;
+  font-size: 55px;
+  text-wrap: wrap;
+  text-align: center;
+}
+
+h2 {
+  font-size: 35px;
+  margin: 0;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 60px;
+}
+
+.description {
+  font-size: 25px;
+  line-height: 42px;
+  font-weight: 500;
+  color: #5a5a5a;
+}
+
+.header-links {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.header-links img {
+  width: 35px;
+  cursor: pointer;
+}
+
+/* Main section */
+
+main {
+  margin-top: 30px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.project-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 1px 1px 6px 2px rgba(0, 0, 0, 0.3);
+}
+
+.project > img {
+  width: 100%;
+}
+
+.project-info {
+  padding: 20px;
+}
+
+.project-info > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.project-info > div h3 {
+  flex: 1;
+}
+
+.project-info img {
+  width: 30px;
+  cursor: pointer;
+}
