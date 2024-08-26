@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
 :root {
-  --cyan: #2e7dab;
+  --cyan: #4a8585;
   --dark-gray: #5a5a5a;
 }
 
@@ -13,18 +13,25 @@ body {
 
 /* header section */
 
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .design {
   position: absolute;
   top: 0;
   width: 100%;
   height: 400px;
   background-color: var(--cyan);
-  transform: scaleY(1.4) skewY(-15deg);
+  transform: scaleY(1.7) skewY(-10deg);
   box-shadow: 4px 2px 6px 2px rgba(0, 0, 0, 0.4);
   z-index: -1;
 }
 
 .img-container {
+  margin-top: 40px;
   position: relative;
   background-image: url(./img/place-holder.jpg);
   background-size: cover;
@@ -82,21 +89,24 @@ svg:hover {
   fill: red;
   transform: scale(1.1);
 }
+
 /* Main section */
 
 main {
-  margin-top: 30px;
-  padding: 20px;
+  padding: 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 40px;
+  position: relative;
+  z-index: 2;
 }
 
 .project-container {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  justify-content: center;
   gap: 40px;
 }
 
@@ -122,15 +132,17 @@ main {
   gap: 10px;
 }
 
-.project-info > div h3 {
-  font-size: 25px;
-  flex: 1;
-}
+.project-info {
+  & h3 {
+    font-size: 25px;
+    flex: 1;
+  }
 
-.project-info p {
-  font-size: 22px;
-  font-weight: 500;
-  color: var(--dark-gray);
+  & p {
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--dark-gray);
+  }
 }
 
 .project-info svg {
@@ -141,8 +153,24 @@ main {
   fill: green;
 }
 
+.project:hover {
+  animation: bounce 400ms ease infinite alternate;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0%);
+  }
+
+  100% {
+    transform: translateY(-2%);
+  }
+}
+
 /* Footer Section */
 footer {
+  margin-top: 40px;
+  padding-top: 10px;
   color: white;
   display: flex;
   flex-direction: column;
@@ -160,8 +188,8 @@ footer {
   text-align: center;
 }
 
-.personal-info p + p {
-  line-height: 33px;
+.personal-info:nth-child(1) {
+  line-height: 35px;
 }
 
 .personal-info p {
@@ -184,7 +212,7 @@ footer img {
   width: 100%;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 900px) {
   .design {
     width: 100%;
     height: 280px;
@@ -198,7 +226,7 @@ footer img {
 
   .img-container {
     float: left;
-    width: 500px;
+    width: 450px;
     min-height: 600px;
     z-index: 1;
     margin-top: -130px;
@@ -206,16 +234,16 @@ footer img {
   }
 
   h1 {
-    font-size: 63px;
+    font-size: 53px;
     text-align: center;
     position: absolute;
     top: 0;
     right: 0;
-    transform: translate(80%, -20%);
+    transform: translate(75%, -20%);
   }
 
   h2 {
-    font-size: 50px;
+    font-size: 44px;
   }
 
   .header-links {
@@ -224,7 +252,7 @@ footer img {
 
   .info {
     display: block;
-    margin: 200px auto;
+    margin: 200px auto 50px auto;
     max-width: 750px;
     background-color: white;
     box-shadow: 1px 1px 6px 2px rgba(0, 0, 0, 0.3);
@@ -232,6 +260,142 @@ footer img {
   }
 
   .description {
-    font-size: 38px;
+    margin-top: 30px;
+    font-size: 28px;
+  }
+
+  main {
+    & .project-container {
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    }
+  }
+
+  .project {
+    & h3 {
+      font-size: 30px;
+    }
+    & p {
+      font-size: 25px;
+    }
+  }
+
+  footer {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 40px;
+
+    & img {
+      max-width: 380px;
+      max-height: 400px;
+    }
+
+    & .phone,
+    .mail {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    & .phone::before {
+      content: url(./svg/phone.svg);
+      display: block;
+      width: 40px;
+      filter: brightness(0) saturate(100%) invert(99%) sepia(45%) saturate(2%)
+        hue-rotate(100deg) brightness(108%) contrast(101%);
+    }
+
+    & .mail::before {
+      content: url(./svg/mail.svg);
+      display: block;
+      width: 40px;
+      filter: brightness(0) saturate(100%) invert(99%) sepia(45%) saturate(2%)
+        hue-rotate(100deg) brightness(108%) contrast(101%);
+    }
+
+    & .footer-links {
+      justify-content: flex-start;
+    }
+
+    & .personal-info {
+      p {
+        font-size: 23px;
+      }
+    }
+  }
+}
+
+@media (min-width: 1098px) {
+  h2 {
+    font-size: 34px;
+  }
+
+  h1 {
+    font-size: 43px;
+  }
+
+  header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 80px;
+
+    & .design {
+      height: 260px;
+      background-color: var(--cyan);
+      transform: scaleY(3.5) skewY(-6deg);
+    }
+
+    & .img-container {
+      width: 400px;
+      margin-top: 20px;
+      margin-right: 0;
+      flex-shrink: 0;
+
+      & h1 {
+        position: unset;
+        transform: unset;
+      }
+    }
+
+    & .info {
+      padding: 70px 30px;
+      flex-shrink: 1;
+      display: flex;
+      max-width: 800px;
+      margin: 120px 0 100px 0;
+      margin-right: 30px;
+    }
+  }
+
+  main {
+    & .project-container {
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+
+      & .project {
+        & h3 {
+          font-size: 24px;
+        }
+        & p {
+          font-size: 19px;
+        }
+      }
+    }
+  }
+
+  footer {
+    padding-bottom: 10px;
+
+    & img {
+      max-width: 550px;
+      max-height: unset;
+    }
+
+    & .personal-info {
+      max-width: 400px;
+    }
   }
 }
